@@ -18,7 +18,7 @@ Load ``fps-anim.js``, then
 .. code::
 
     anim = new Anim(); // create an animator
-    anim.start(f, 5); // execute function render() at 5 fps
+    anim.start(f, 5); // execute function f() at 5 fps
     //...
     anim.stop(); // stop execution
 
