@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+    <canvas id="canv" width="320" height="240"></canvas>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://threejs.org/build/three.min.js"></script>
+    <script src="../fps-anim.js"></script>
+    <script>
+        let canvas = $('#canv')[0];
+        let camera = new THREE.PerspectiveCamera( 75, canvas.width/canvas.height, 0.1, 1000 );
+        let renderer = new THREE.WebGLRenderer({canvas: canvas});
+        let geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        let cube = new THREE.Mesh( geometry, material );
+        let scene = new THREE.Scene();
+        scene.add( cube );
+
+        camera.position.z = 2;
+        let render = () => {
+            cube.rotation.x += 0.1;
+            cube.rotation.y += 0.1;
+            renderer.render(scene, camera);
+        };
+
+        // execute function render() at 20 fps
+        let anim = new Anim();
+        anim.start(render, 20);
+        // stop rendering after 8 seconds
+        setTimeout(() => {
+            anim.stop();
+        }, 8*1000);
+    </script>
+</body>
+</html>
