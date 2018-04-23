@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+    <p>5 fps <canvas id="c1" width="320" height="200"></canvas></p>
+    <p>10 fps <canvas id="c2" width="320" height="200"></canvas></p>
+    <p>20 fps <canvas id="c3" width="320" height="200"></canvas></p>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script src="../fps-anim.js"></script>
+    <script>
+        'use strict';
+        const mkRender = (c) => {
+            const canvas = $(c)[0];
+            const camera = new THREE.PerspectiveCamera( 75, canvas.width/canvas.height, 0.1, 1000 );
+            const renderer = new THREE.WebGLRenderer({canvas: canvas});
+            const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+            const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+            const cube = new THREE.Mesh( geometry, material );
+            const scene = new THREE.Scene();
+            scene.add( cube );
+
+            camera.position.z = 2;
+            return () => {
+                const t = performance.now() / 1000.;
+                // console.log('t:', t);
+                cube.rotation.x = Math.PI/2 * t;
+                renderer.render(scene, camera);
+            };
+        };
+
+        const a1 = new Anim();
+        const a2 = new Anim();
+        const a3 = new Anim();
+        a1.start(mkRender('#c1'), 5);
+        a2.start(mkRender('#c2'), 10);
+        a3.start(mkRender('#c3'), 20);
+        setTimeout(() => {
+            a1.stop();
+            a2.stop();
+            a3.stop();
+        }, 8*1000);
+    </script>
+</body>
+</html>

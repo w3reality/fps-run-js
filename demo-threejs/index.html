@@ -4,25 +4,27 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-    <canvas id="canv" width="320" height="240"></canvas>
+    <canvas id="canvas" width="640" height="480"></canvas>
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://threejs.org/build/three.min.js"></script>
     <script src="../fps-anim.js"></script>
     <script>
-        let canvas = $('#canv')[0];
-        let camera = new THREE.PerspectiveCamera( 75, canvas.width/canvas.height, 0.1, 1000 );
-        let renderer = new THREE.WebGLRenderer({canvas: canvas});
-        let geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-        let cube = new THREE.Mesh( geometry, material );
-        let scene = new THREE.Scene();
+        'use strict';
+        const canvas = $('#canvas')[0];
+        const camera = new THREE.PerspectiveCamera( 75, canvas.width/canvas.height, 0.1, 1000 );
+        const renderer = new THREE.WebGLRenderer({canvas: canvas});
+        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        const cube = new THREE.Mesh( geometry, material );
+        const scene = new THREE.Scene();
         scene.add( cube );
 
         camera.position.z = 2;
         let render = () => {
-            cube.rotation.x += 0.1;
-            cube.rotation.y += 0.1;
+            const t = performance.now() / 1000.;
+            // console.log('t:', t);
+            cube.rotation.x = Math.PI/2 * t;
             renderer.render(scene, camera);
         };
 
