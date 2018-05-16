@@ -8,11 +8,11 @@
     <pre id="log" style="width: 320px; height: 240px; overflow: scroll;"></pre>
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="../fps-anim.js"></script>
+    <script src="../fps-run.js"></script>
     <script>
         'use strict';
         let $log = $('#log');
-        let anim = new Anim({
+        let fr = new FpsRun({
             log: true, // optional
             logFunc: (msg) => { $log.append(msg+"\n"); }, // optional
         });
@@ -23,10 +23,10 @@
         };
 
         // execute function f() at 5 fps
-        anim.start(f, 5);
+        fr.start(f, 5);
         // stop the loop after 4 seconds
         setTimeout(() => {
-            anim.stop();
+            fr.stop();
         }, 4000);
     </script>
 </body>

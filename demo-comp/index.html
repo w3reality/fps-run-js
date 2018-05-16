@@ -10,7 +10,7 @@
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://threejs.org/build/three.min.js"></script>
-    <script src="../fps-anim.js"></script>
+    <script src="../fps-run.js"></script>
     <script>
         'use strict';
         const mkRender = (c) => {
@@ -32,16 +32,16 @@
             };
         };
 
-        const a1 = new Anim();
-        const a2 = new Anim();
-        const a3 = new Anim();
-        a1.start(mkRender('#c1'), 5);
-        a2.start(mkRender('#c2'), 10);
-        a3.start(mkRender('#c3'), 20);
+        const fr1 = new FpsRun();
+        const fr2 = new FpsRun();
+        const fr3 = new FpsRun();
+        fr1.start(mkRender('#c1'), 5);
+        fr2.start(mkRender('#c2'), 10);
+        fr3.start(mkRender('#c3'), 20);
         setTimeout(() => {
-            a1.stop();
-            a2.stop();
-            a3.stop();
+            fr1.stop();
+            fr2.stop();
+            fr3.stop();
         }, 8*1000);
     </script>
 </body>

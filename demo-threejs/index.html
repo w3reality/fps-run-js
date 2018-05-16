@@ -8,7 +8,7 @@
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://threejs.org/build/three.min.js"></script>
-    <script src="../fps-anim.js"></script>
+    <script src="../fps-run.js"></script>
     <script>
         'use strict';
         const canvas = $('#canvas')[0];
@@ -29,11 +29,11 @@
         };
 
         // execute function render() at 20 fps
-        let anim = new Anim();
-        anim.start(render, 20);
+        let fr = new FpsRun();
+        fr.start(render, 20);
         // stop rendering after 8 seconds
         setTimeout(() => {
-            anim.stop();
+            fr.stop();
         }, 8*1000);
     </script>
 </body>

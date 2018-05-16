@@ -53,3 +53,5 @@ class Anim {
         this.stopped = true;
     }
 }
+
+export default Anim;

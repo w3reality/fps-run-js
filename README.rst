@@ -1,7 +1,7 @@
-fps-anim-js
+fps-run-js
 ===========
 
-An es6-JavaScript utility class that enables fps-throttled animation.
+A JavaScript utility class that enables fps-throttled function execution.
 Internally, ``requestAnimationFrame()`` is arranged to execute a user-provided
 function at a specified fps.  The code is based on `this Stack Overflow discussion`_ and
 its related `JSFiddle demo`_.
@@ -13,14 +13,14 @@ its related `JSFiddle demo`_.
 Usage
 -----
 
-Load ``fps-anim.js``, then
+Load ``fps-run.js``, then
 
 .. code::
 
-    anim = new Anim(); // create an animator
-    anim.start(f, 5); // execute function f() at 5 fps
+    fr = new FpsRun(); // create a runner
+    fr.start(f, 5); // execute function f() at 5 fps
     //...
-    anim.stop(); // stop execution
+    fr.stop(); // stop execution
 
 Live Demos 🔥
 --------------
@@ -29,6 +29,14 @@ Live Demos 🔥
 - `demo-threejs`_: Rendering 3D graphics at 20 fps for 8 seconds using three.js (`index.html <demo-threejs/index.html>`__)
 - `demo-comp`_: Rendering rotating cubes at 5, 10, and 20 fps, respectively (`index.html <demo-comp/index.html>`__)
 
-.. _demo-logging: https://w3reality.github.io/fps-anim-js/demo-logging/
-.. _demo-threejs: https://w3reality.github.io/fps-anim-js/demo-threejs/
-.. _demo-comp: https://w3reality.github.io/fps-anim-js/demo-comp/
+.. _demo-logging: https://w3reality.github.io/fps-run-js/demo-logging/
+.. _demo-threejs: https://w3reality.github.io/fps-run-js/demo-threejs/
+.. _demo-comp: https://w3reality.github.io/fps-run-js/demo-comp/
+
+Build
+-----
+
+.. code::
+
+   $ npm install  # set up build tools
+   $ npm run build  # generate module files in lib/
