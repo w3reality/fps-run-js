@@ -1,5 +1,5 @@
 fps-run-js
-===========
+----------
 
 A JavaScript utility class that enables fps-throttled function execution.
 Internally, ``requestAnimationFrame()`` is arranged to execute a user-provided
@@ -28,7 +28,7 @@ Load ``fps-run.js``, then
 Live Demos 🔥
 --------------
 
-- `demo-logging`_: Executing a function at 5 fps for 4 seconds (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-logging/index.htmll>`__)
+- `demo-logging`_: Executing a function at 5 fps for 4 seconds (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-logging/index.html>`__)
 - `demo-threejs`_: Rendering 3D graphics at 20 fps for 8 seconds using three.js (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-threejs/index.html>`__)
 - `demo-comp`_: Rendering rotating cubes at 5, 10, and 20 fps, respectively (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-comp/index.html>`__)
 
