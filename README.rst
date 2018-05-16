@@ -28,9 +28,9 @@ Load ``fps-run.js``, then
 Live Demos 🔥
 --------------
 
-- `demo-logging`_: Executing a function at 5 fps for 4 seconds (`index.html <demo-logging/index.html>`__)
-- `demo-threejs`_: Rendering 3D graphics at 20 fps for 8 seconds using three.js (`index.html <demo-threejs/index.html>`__)
-- `demo-comp`_: Rendering rotating cubes at 5, 10, and 20 fps, respectively (`index.html <demo-comp/index.html>`__)
+- `demo-logging`_: Executing a function at 5 fps for 4 seconds (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-logging/index.htmll>`__)
+- `demo-threejs`_: Rendering 3D graphics at 20 fps for 8 seconds using three.js (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-threejs/index.html>`__)
+- `demo-comp`_: Rendering rotating cubes at 5, 10, and 20 fps, respectively (`index.html <https://github.com/w3reality/fps-run-js/blob/master/demo-comp/index.html>`__)
 
 .. _demo-logging: https://w3reality.github.io/fps-run-js/demo-logging/
 .. _demo-threejs: https://w3reality.github.io/fps-run-js/demo-threejs/
