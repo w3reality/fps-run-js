@@ -3,12 +3,15 @@ fps-run-js
 
 A JavaScript utility class that enables fps-throttled function execution.
 Internally, ``requestAnimationFrame()`` is arranged to execute a user-provided
-function at a specified fps.  The code is based on `this Stack Overflow discussion`_ and
-its related `JSFiddle demo`_.
+function at a specified fps.  The code is based on `this Stack Overflow discussion`_ and its related `JSFiddle demo`_.
 
 .. _this Stack Overflow discussion: https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe/19772220#19772220
 .. _JSFiddle demo: http://jsfiddle.net/nRpVD/184/
 
+The module is compiled as a `UMD (Universal Module Definition)`_ module.
+So it can be consumed by script-tags, AMD loading (require.js), and Node.js.
+
+.. _UMD (Universal Module Definition): https://github.com/umdjs/umd
 
 Usage
 -----
