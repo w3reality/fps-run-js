@@ -1,9 +1,13 @@
 {
     "name": "fps-run-js",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "A JavaScript utility class that enables fps-throttled function execution.",
     "repository": "https://github.com/w3reality/fps-run-js",
     "main": "dist/fps-run.js",
+    "directories": {
+        "example": "examples",
+        "test": "test"
+    },
     "scripts": {
         "dist": "npm run build && rm -rf ./dist && cp -r ./lib ./dist",
         "build": "webpack --env dev && webpack --env build && npm run test",
