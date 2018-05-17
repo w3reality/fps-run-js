@@ -1,4 +1,4 @@
-class Anim {
+class FpsRun {
     constructor(opts={}) {
         this.stopped = false;
         this.frameCount = 0;
@@ -8,15 +8,30 @@ class Anim {
         this.animFunc = null;
         this.log = opts.log;
         this.logFunc = opts.logFunc;
+        this.isBrowser = typeof document !== 'undefined';
+        if (this.isBrowser) {
+            this.performance = window.performance;
+        } else {
+            // https://stackoverflow.com/questions/23003252/window-performance-now-equivalent-in-nodejs
+            // Node >= v8.5.0
+            const { performance } = require('perf_hooks');
+            this.performance = performance;
+        }
+
         // animate(now) is recursively called by rAF(), so
         // to preserve "this" pointing to the class instance,
         // define animate() in constructor with the => syntax
         this.animate = (now) => {
-            // console.log('animate(): called')
+            // console.log('animate(): now:', now);
             if (this.stopped) return;
 
-            // request another frame
-            requestAnimationFrame(this.animate);
+            if (this.isBrowser) {
+                window.requestAnimationFrame(this.animate);
+            } else {
+                // https://stackoverflow.com/questions/30442896/server-side-implementation-of-requestanimationframe-in-nodejs
+                setImmediate(this.animate, this.performance.now());
+                // test with: FpsRun = require('./lib/fps-run'); fr = new FpsRun({log: true}); fr.start(function(){console.log('hi');}, 1)
+            }
 
             // calc elapsed time since last loop
             let elapsed = now - this.then;
@@ -43,7 +58,7 @@ class Anim {
     start(f, fps) {
         this.animFunc = f;
         this.fpsInterval = 1000 / fps;
-        this.then = window.performance.now();
+        this.then = this.performance.now();
         if (this.log) {
             this.startTime = this.then;
         }
@@ -54,4 +69,4 @@ class Anim {
     }
 }
 
-export default Anim;
+export default FpsRun;

@@ -22,6 +22,7 @@ if (env === 'build') {
 const config = {
     entry: __dirname + '/src/index.js',
     externals: {
+        perf_hooks: true,
     },
     output: {
         path: __dirname + '/lib',
