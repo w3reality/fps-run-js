@@ -16,7 +16,7 @@ So it can be consumed by script-tags, AMD loading (require.js), and Node.js.
 Usage
 -----
 
-Load ``fps-run.js``, then
+``npm install fps-run-js``, load ``fps-run.js`` and in code:
 
 .. code::
 
