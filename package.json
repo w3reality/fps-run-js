@@ -2,6 +2,7 @@
     "name": "fps-run-js",
     "version": "1.0.2",
     "description": "A JavaScript utility class that enables fps-throttled function execution.",
+    "repository": "https://github.com/w3reality/fps-run-js",
     "main": "dist/fps-run.js",
     "scripts": {
         "dist": "npm run build && rm -rf ./dist && cp -r ./lib ./dist",
@@ -10,6 +11,10 @@
         "test": "mocha --require babel-core/register --colors ./test/*.spec.js",
         "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js"
     },
+    "keywords": [
+        "fps",
+        "three"
+    ],
     "author": "j-devel",
     "license": "MIT",
     "dependencies": {},

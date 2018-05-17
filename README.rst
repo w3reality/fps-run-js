@@ -1,5 +1,5 @@
 fps-run-js
-----------
+==========
 
 A JavaScript utility class that enables fps-throttled function execution.
 Internally, ``requestAnimationFrame()`` is arranged to execute a user-provided
