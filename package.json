@@ -1,6 +1,6 @@
 {
     "name": "fps-run-js",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A JavaScript utility class that enables fps-throttled function execution.",
     "repository": "https://github.com/w3reality/fps-run-js",
     "main": "dist/fps-run.js",
