@@ -67,6 +67,10 @@ class FpsRun {
     stop() {
         this.stopped = true;
     }
+    resume() {
+        this.stopped = false;
+        this.animate();
+    }
 }
 
 export default FpsRun;
