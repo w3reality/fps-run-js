@@ -1,3 +1,6 @@
+
+import Meta from 'es-pack-js/src/meta';
+
 class FpsRun {
     constructor(opts={}) {
         this.stopped = false;
@@ -8,14 +11,14 @@ class FpsRun {
         this.animFunc = null;
         this.log = opts.log;
         this.logFunc = opts.logFunc;
-        this.isBrowser = typeof document !== 'undefined';
-        if (this.isBrowser) {
-            this.performance = window.performance;
-        } else {
+        this.isNodeJS = Meta.isNodeJS();
+        if (this.isNodeJS) {
             // https://stackoverflow.com/questions/23003252/window-performance-now-equivalent-in-nodejs
             // Node >= v8.5.0
             const { performance } = require('perf_hooks');
-            this.performance = performance;
+            this.perf = performance;
+        } else {
+            this.perf = window.performance;
         }
 
         // animate(now) is recursively called by rAF(), so
@@ -25,12 +28,11 @@ class FpsRun {
             // console.log('animate(): now:', now);
             if (this.stopped) return;
 
-            if (this.isBrowser) {
-                window.requestAnimationFrame(this.animate);
-            } else {
+            if (this.isNodeJS) {
                 // https://stackoverflow.com/questions/30442896/server-side-implementation-of-requestanimationframe-in-nodejs
-                setImmediate(this.animate, this.performance.now());
-                // test with: FpsRun = require('./lib/fps-run'); fr = new FpsRun({log: true}); fr.start(function(){console.log('hi');}, 1)
+                setImmediate(this.animate, this.perf.now());
+            } else {
+                window.requestAnimationFrame(this.animate);
             }
 
             // calc elapsed time since last loop
@@ -58,7 +60,7 @@ class FpsRun {
     start(f, fps) {
         this.animFunc = f;
         this.fpsInterval = 1000 / fps;
-        this.then = this.performance.now();
+        this.then = this.perf.now();
         if (this.log) {
             this.startTime = this.then;
         }
