@@ -1,5 +1,16 @@
 # fps-run-js
 
+[![npm][npm-badge]][npm-url]
+[![MIT licensed][mit-badge]][mit-url]
+[![CI][actions-badge]][actions-url]
+
+[npm-badge]: https://img.shields.io/npm/v/fps-run-js.svg
+[npm-url]: https://www.npmjs.com/package/fps-run-js
+[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[mit-url]: https://github.com/w3reality/fps-run-js/blob/master/LICENSE
+[actions-badge]: https://github.com/w3reality/fps-run-js/workflows/CI/badge.svg
+[actions-url]: https://github.com/w3reality/fps-run-js/actions
+
 A JavaScript utility class that enables fps-throttled function
 execution. Internally, `requestAnimationFrame()` is arranged to execute
 a user-provided function at a specified fps. The code is based on
