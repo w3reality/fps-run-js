@@ -26,6 +26,6 @@
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {
-        "es-pack-js": "^0.3.7"
+        "es-pack-js": "0.4.2"
     }
 }
